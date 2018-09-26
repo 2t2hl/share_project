@@ -2,16 +2,19 @@
 Made by Trinh, Thu, Hung, Huy and Luc
 
 ###### Make new branch
-git branch develop_name
+git branch dev-huutrinh
 
 ###### Switch to new branch
-git checkout -b develop_name
+git checkout dev-huutrinh
 
 ###### Confirm the current branch
 git branch
 
+###### Push source code to branch
+git push origin dev-huutrinh
+
 ###### Show all list branchs
-git branch -a
+git branch -a   
 
 ###### Add remote git
 git remote add origin git@github.com:2t2hl/share_project.git
