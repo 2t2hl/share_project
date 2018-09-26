@@ -1,4 +1,4 @@
-#!/bin/bash
+#!bin/bash
 # Set default python to version 3
 update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
