@@ -1,3 +1,3 @@
 git add .
 git commit
-git push origin develop
+git push origin develop_name
