@@ -1,0 +1,4 @@
+eShop/catalogue/__pycache__/
+eShop/catalogue/migrations/__pycache__/
+eShop/nhatbanshop/__pycache__/
+db.sqlite3
