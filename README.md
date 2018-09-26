@@ -1,6 +1,6 @@
 ### share_project: Eshop project
 Made by Trinh, Thu, Hung, Huy and Luc
-
+// this line only appears on dev-tronghung branch
 ###### Make new branch
 git branch develop_name
 
