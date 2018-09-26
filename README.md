@@ -1,5 +1,6 @@
 # share_project
 Made by Trinh, Thu, Hung, Huy and Luc
+<<<<<<< HEAD
 ###### Make new branch
 git branch develop
 
@@ -49,3 +50,6 @@ https://www.fakeaddressgenerator.com/World/us_address_generator
 ###### Install stripe
 pip install stripe
 
+=======
+// This line is to test the environment setting, it should be removed later
+>>>>>>> b5fe404b3d8e21fe564f8d012a30e0752227940a
