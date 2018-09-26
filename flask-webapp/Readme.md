@@ -4,5 +4,5 @@ conda create --name flask-webapp python==3.6
 ###### To activate this environment, use:
 source activate flask-webapp
 
-######To deactivate an active environment, use:
+###### To deactivate an active environment, use:
 source deactivate
