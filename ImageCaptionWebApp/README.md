@@ -3,7 +3,7 @@
 Made by Trinh, Thu, Hung, Huy and Luc
 
 ## Experiment
-[!title](image/experiment.png)
+![title](image/experiment.png)
 
 ## Dependencies
 * Python3
