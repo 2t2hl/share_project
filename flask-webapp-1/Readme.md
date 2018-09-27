@@ -18,10 +18,6 @@ pip install tensorflow
 pip install flask gevent requests pillow
 pip install sklearn
 ```
-###### Next, clone the repo:
-```javascript
-$ git clone https://github.com/jrosebr1/simple-keras-rest-api.git
-```
 
 ###### Run to build server
 ```javascript
