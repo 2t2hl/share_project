@@ -10,6 +10,7 @@
 from keras.applications import ResNet50
 from keras.preprocessing.image import img_to_array
 from keras.applications import imagenet_utils
+from sklearn.externals import joblib
 from PIL import Image
 import numpy as np
 import flask
@@ -25,7 +26,10 @@ def load_model():
 	# pre-trained on ImageNet and provided by Keras, but you can
 	# substitute in your own networks just as easily)
 	global model
+	print(" * Loading pre-trained model ...")
 	model = ResNet50(weights="imagenet")
+	# model = joblib.load("./trained-model/sample-model.pkl")
+	print(' * Loading end')
 
 def prepare_image(image, target):
 	# if the image mode is not RGB, convert it
@@ -45,7 +49,10 @@ def prepare_image(image, target):
 def predict():
 	# initialize the data dictionary that will be returned from the
 	# view
-	data = {"success": False}
+	response = {
+        "success": False,
+        "Content-Type": "application/json"
+    }
 
 	# ensure an image was properly uploaded to our endpoint
 	if flask.request.method == "POST":
@@ -61,24 +68,24 @@ def predict():
 			# of predictions to return to the client
 			preds = model.predict(image)
 			results = imagenet_utils.decode_predictions(preds)
-			data["predictions"] = []
+			response["predictions"] = []
 
 			# loop over the results and add them to the list of
 			# returned predictions
 			for (imagenetID, label, prob) in results[0]:
 				r = {"label": label, "probability": float(prob)}
-				data["predictions"].append(r)
+				response["predictions"].append(r)
 
 			# indicate that the request was a success
-			data["success"] = True
+			response["success"] = True
 
 	# return the data dictionary as a JSON response
-	return flask.jsonify(data)
+	return flask.jsonify(response)
 
 # if this is the main thread of execution first load the model and
 # then start the server
 if __name__ == "__main__":
 	print(("* Loading Keras model and Flask starting server..."
-		"please wait until server has fully started"))
+        "please wait until server has fully started"))
 	load_model()
 	app.run(debug = False, threaded = False)

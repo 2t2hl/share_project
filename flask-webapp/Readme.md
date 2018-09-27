@@ -16,6 +16,7 @@ source deactivate
 pip install keras
 pip install tensorflow
 pip install flask gevent requests pillow
+pip install sklearn
 ```
 ###### Next, clone the repo:
 ```javascript
