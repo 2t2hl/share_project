@@ -17,6 +17,7 @@ pip install keras
 pip install tensorflow
 pip install flask gevent requests pillow
 pip install sklearn
+pip install redis
 ```
 
 ###### Run to build server

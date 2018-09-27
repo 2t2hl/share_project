@@ -5,6 +5,9 @@ import os
 import glob
 import re
 import numpy as np
+import redis
+import settings
+import helpers
 
 # Keras
 from keras.applications.imagenet_utils import preprocess_input, decode_predictions
@@ -16,8 +19,24 @@ from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 
-# Define a flask app
+# Initialize our Flask application, Redis server, and Keras model
 app = Flask(__name__)
+db = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
+model = None
+
+def prepare_image(image, target):
+	# if the image mode is not RGB, convert it
+	if image.mode != "RGB":
+		image = image.convert("RGB")
+ 
+	# resize the input image and preprocess it
+	image = image.resize(target)
+	image = img_to_array(image)
+	image = np.expand_dims(image, axis=0)
+	image = imagenet_utils.preprocess_input(image)
+ 
+	# return the processed image
+	return image
 
 # Model saved with Keras model.save()
 MODEL_PATH = 'models/your_model.h5'
@@ -30,9 +49,13 @@ MODEL_PATH = 'models/your_model.h5'
 # You can also use pretrained model from Keras
 # Check https://keras.io/applications/
 from keras.applications.resnet50 import ResNet50
-model = ResNet50(weights='imagenet')
-print('Model loaded. Check http://127.0.0.1:5000/')
-
+# load the pre-trained Keras model (here we are using a model
+# pre-trained on ImageNet and provided by Keras, but you can
+# substitute in your own networks just as easily)
+print("* Loading model...")
+model = ResNet50(weights="imagenet")
+print("* Model loaded. Check http://127.0.0.1:5000/")
+	
 
 def model_predict(img_path, model):
     img = image.load_img(img_path, target_size=(224, 224))
