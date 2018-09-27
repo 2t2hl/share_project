@@ -3,7 +3,7 @@
 Made by Trinh, Thu, Hung, Huy and Luc
 
 ## Experiment
-[title](/image/experiment.png)
+[!title](image/experiment.png)
 
 ## Dependencies
 * Python3
@@ -24,10 +24,11 @@ Made by Trinh, Thu, Hung, Huy and Luc
 > pip install -r requirements.txt
 
 ### Step 3: Dowbload Vocabulary dict and pretrained model
-[Vocabulary](https://raw.githubusercontent.com/ColeMurray/medium-show-and-tell-caption-generator/master/etc/word_counts.txt)
-[Pretrained Model](https://drive.google.com/uc?export=download&id=15Juh0gaYR0qv8GjRL1EvsigErdQXTmnt)
+* [Vocabulary](https://raw.githubusercontent.com/ColeMurray/medium-show-and-tell-caption-generator/master/etc/word_counts.txt)
 
-* And then, let's move **word_counts.txt** to data folder and **show-and-tell.pb** to models folder (both of them at ImageCaptionWebApp)
+* [Pretrained Model](https://drive.google.com/uc?export=download&id=15Juh0gaYR0qv8GjRL1EvsigErdQXTmnt)
+
+And then, let's move **word_counts.txt** to data folder and **show-and-tell.pb** to models folder (both of them at ImageCaptionWebApp)
 
 ### Step 4: Run Web App (I recommend we should run app on virtual Env )
 
