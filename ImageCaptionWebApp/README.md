@@ -3,9 +3,9 @@
 Made by Trinh, Thu, Hung, Huy and Luc
 
 ## Experiment
-[!title](/image/experiment.png)
+[title](/image/experiment.png)
 
-##Dependencies
+## Dependencies
 * Python3
 * Flask-Bootstrap
 * Tensorflow
@@ -16,6 +16,7 @@ Made by Trinh, Thu, Hung, Huy and Luc
 ### Step 1: Clone this git
 	
 > git clone https://github.com/2t2hl/share_project/tree/master/ImageCaptionWebApp
+
 > cd ImageCaptionWebApp
 
 ### Step 2: Install environment
